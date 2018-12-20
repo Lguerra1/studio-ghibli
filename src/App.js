@@ -9,13 +9,26 @@ class App extends Component {
   }
   componentDidMount() {
     axios.get('https://ghibliapi.herokuapp.com/films').then(res => {
-      console.log(res.data,'test')
-      this.setState({ movies: res.data})
+      console.log(res.data, 'test')
+      this.setState({ movies: res.data })
     })
   }
+ 
   render() {
     return (
       <div>
+        
+        <div className="ui visible left demo vertical inverted sidebar labeled icon menu">
+          <a className="item">
+            <i className="home icon"></i>
+            Home
+  </a>
+          <a className="item">
+            <i className="block layout icon"></i>
+            Movies
+  </a>
+        </div>
+        
         <HomePage movies={this.state.movies} />
       </div>
     );

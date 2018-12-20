@@ -1,26 +1,26 @@
 import React from 'react';
 
 const MovieInfo = (props) => {
-    console.log(props.movies, 'movies')
+    console.log(props.movie, 'movies')
     return (
-        <div className='ui link cards container'>
+        <div className='ui link cards '>
             <div className="card ">
-                <div className="image">
-                    <img src=' '/>
 
-                </div>
                 <div className="content">
-                    <div className="header">{props.movies.title}</div>
+                    <div className="header">{props.movie.title}</div>
+                    <div className="image">
+                        <img className="ui centered small image" src='https://upload.wikimedia.org/wikipedia/en/thumb/c/ca/Studio_Ghibli_logo.svg/1200px-Studio_Ghibli_logo.svg.png' />
+                    </div>
                     <div className="meta">
-                        <a>Director: {props.movies.director}</a>
+                        <a>Director: {props.movie.director}</a>
                     </div>
                     <div className="description">
-                        {props.movies.description}
+                        {props.movie.description}
                     </div>
                 </div>
                 <div className="extra content">
                     <span className="left floated">
-                        Release Date: {props.movies.release_date}
+                        Release Date: {props.movie.release_date}
                     </span>
                 </div>
             </div>

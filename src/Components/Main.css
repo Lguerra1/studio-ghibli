@@ -1,18 +1,38 @@
 .main-title {
     text-align: center;
+    padding-bottom: 40px;
 }
-.container {
-    /* border: 1px solid black;     */
-    display: flex;
-	flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-}
+
 
 .header {
     text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
 }
 .meta {
     text-align: center;
+    padding-top: 5px;
 }
+
+ .card {
+    background: lavender !important;
+    margin: 2rem !important;
+    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1) !important;
+    border-radius: 12px !important;
+    transition: all .2s linear !important;
+    text-align: left !important;
+  }
+  
+  .card:hover {
+    box-shadow: 2px 8px 45px rgba(0, 0, 0, .15) !important;
+    transform: translate3D(0, -2px, 0) !important;
+  }
+  .image {
+    text-align: center !important;
+    padding: 10px 0px 10px 0px;
+  }
+
+  img {      
+      height: 100px !important;
+      width: 300px !important;
+  }
