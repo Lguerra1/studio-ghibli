@@ -9,8 +9,8 @@ class App extends Component {
   }
   componentDidMount() {
     axios.get('https://ghibliapi.herokuapp.com/films').then(res => {
-      console.log(res.data)
-      this.setState({ movies: res.data })
+      console.log(res.data,'test')
+      this.setState({ movies: res.data})
     })
   }
   render() {

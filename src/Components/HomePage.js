@@ -1,19 +1,14 @@
 import React from 'react';
+import MovieInfo from './MovieInfo';
+import './Main.css';
 
 const HomePage = (props) => {
     console.log(props.movies)
-    const renderedMovies = props.movies.map((movie, index) => {
-        return (
-            <div key={index}>
-                <p style={{ fontSize: "20px" }}> {movie.title}</p>
-                <p>{movie.description}</p>
-            </div>
-        )
-    })
+        
     return (
         <div>
-            <h1>Studio Ghibli Films </h1>
-            {renderedMovies}
+            <h1 className='main-title'>Studio Ghibli Films </h1>
+            <MovieInfo movies={props.movies} />
         </div >
     )
 
