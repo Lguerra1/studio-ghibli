@@ -11,12 +11,14 @@ export default class Details extends Component {
 
     componentDidMount() {
         axios.get(`https://ghibliapi.herokuapp.com/films/${this.props.match.params.id}`).then(res => {
+            console.log(this.props)
             this.setState({ movie: res.data })
         })
     }
     render() {
+        
         return (
-            <div>
+            <div className='ui container'>
                 <h1 className="ui header">{this.state.movie.title}</h1>
                 <h4 className="ui horizontal divider header">
                     <i className="film icon"></i>
@@ -44,6 +46,7 @@ export default class Details extends Component {
                             <td>Rotten Tomato Score</td>
                             <td>{this.state.movie.rt_score}</td>
                         </tr>
+                        
                     </tbody>
                 </table>
             </div>

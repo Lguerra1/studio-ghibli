@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 export default class MovieInfo extends Component {
 
@@ -11,22 +10,16 @@ export default class MovieInfo extends Component {
             director: props.movie.director,
             release_date: props.movie.release_date,
             description: props.movie.description,
-            id: props.movie.id,
-            filmInfo: []
+            id: props.movie.id
         }
     }
+ 
 
-    componentDidMount() {
-        axios.get('https://ghibliapi.herokuapp.com/films').then(res => {
-            this.setState({ filmInfo: res.data })
-        })
-    }
     render() {
 
         return (
             <Link to={`/moviedetails/${this.state.id}`}><div className='ui link cards ' >
                 <div className="card">
-
                     <div className="content">
                         <div className="header">{this.state.title}</div>
                         <div className="image">
