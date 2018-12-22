@@ -2,7 +2,9 @@ import React from 'react';
 import MovieInfo from './MovieInfo';
 import './Main.css';
 
+
 const HomePage = (props) => {
+
     const movie = props.movies.map((movie, index) => {
         return (
             <MovieInfo
@@ -22,5 +24,3 @@ const HomePage = (props) => {
 }
 
 export default HomePage;
-
-

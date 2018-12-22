@@ -1,32 +1,55 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-const MovieInfo = (props) => {
-    return (
-        <div className='ui link cards'>
-            <div className="card">
+export default class MovieInfo extends Component {
 
-                <div className="content">
-                    <div className="header">{props.movie.title}</div>
-                    <div className="image">
-                        <img className="ui centered small image" src='https://upload.wikimedia.org/wikipedia/en/thumb/c/ca/Studio_Ghibli_logo.svg/1200px-Studio_Ghibli_logo.svg.png' alt='ghibli logo'/>
-                    </div>
-                    <div className="meta">
-                        Director: {props.movie.director}
-                        <br />
-                        Release Date: {props.movie.release_date}
-                    </div>
-                    <div className="description">
-                        {props.movie.description}
-                    </div>
-                </div>
-                <div className="extra content">
+    constructor(props) {
+        super(props)
+        this.state = {
+            title: props.movie.title,
+            director: props.movie.director,
+            release_date: props.movie.release_date,
+            description: props.movie.description,
+            id: props.movie.id,
+            filmInfo: []
+        }
+    }
 
+    componentDidMount() {
+        axios.get('https://ghibliapi.herokuapp.com/films').then(res => {
+            this.setState({ filmInfo: res.data })
+        })
+    }
+    render() {
+
+        return (
+            <Link to={`/moviedetails/${this.state.id}`}><div className='ui link cards ' >
+                <div className="card">
+
+                    <div className="content">
+                        <div className="header">{this.state.title}</div>
+                        <div className="image">
+                            <img className="ui centered small image" src='https://upload.wikimedia.org/wikipedia/en/thumb/c/ca/Studio_Ghibli_logo.svg/1200px-Studio_Ghibli_logo.svg.png' alt='ghibli logo' />
+                        </div>
+                        <div className="meta">
+                            Director: {this.state.director}
+                            <br />
+                            Release Date: {this.state.release_date}
+                        </div>
+                        <div className="description">
+                            {/* {this.state.description} */}
+                        </div>
+                    </div>
+                    <div className="extra content">
+
+                    </div>
                 </div>
             </div>
-        </div>
-    )
+            </Link>
+
+        )
+
+    }
 }
-
-export default MovieInfo
-
 
