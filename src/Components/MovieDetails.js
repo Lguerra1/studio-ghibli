@@ -6,7 +6,8 @@ export default class Details extends Component {
         super()
         this.state = {
             movie: [],
-            people: []
+            people: [],
+            null: 'N/A'
         }
     }
 
@@ -30,19 +31,6 @@ export default class Details extends Component {
                 if (`https://ghibliapi.herokuapp.com/films/${this.props.match.params.id}` === `${person.films}`) {
                     return (
                         <div key={index}>
-                            {/* <div class="ui form">
-                                <div class="ui message">
-                                    <div class="header">{person.name}</div>
-                                    <ul class="list">
-                                        <li>Age: {person.age}</li>
-                                        <li>Gender: {person.gender}</li>
-                                        <li>Eye Color: {person.eye_color}</li>
-                                        <li>Hair Color: {person.hair_color}</li>
-                                    </ul>
-                                </div>
-                            </div> */}
-
-
                             <div className="ui cards">
                                 <div className="card">
                                     <div className="content">
@@ -57,9 +45,9 @@ export default class Details extends Component {
                                 </div>
                             </div>
                         </div >
-                    )
-                }
-            }
+                    )                    
+                } 
+            } 
 
         })
 
@@ -92,13 +80,11 @@ export default class Details extends Component {
                             <td>Rotten Tomato Score</td>
                             <td>{this.state.movie.rt_score}</td>
                         </tr>
-
                     </tbody>
                 </table>
-
-                <button className="ui button" onClick={() => this.getPeople()}>Characters</button>
+                <button className="ui button character" onClick={() => this.getPeople()}>Characters</button>
                 <div className='ui centered grid'>
-                    {people}
+                   {people}
                 </div>
             </div>
 

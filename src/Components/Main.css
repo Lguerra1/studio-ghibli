@@ -16,7 +16,7 @@
   .cards {
     /* background: lavender !important; */
     margin: 1rem !important;
-    /* box-shadow: 2px 4px 25px rgba(0, 0, 0, .1) !important; */
+    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1) !important;
     border-radius: 12px !important;
     transition: all .2s linear !important;
     text-align: left !important;
@@ -52,4 +52,8 @@ img {
     text-align: left;
     font-size: 15px;
     font-weight: 550    
+}
+
+.character {
+    margin-bottom: 10px !important;
 }
