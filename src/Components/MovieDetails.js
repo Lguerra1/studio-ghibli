@@ -30,16 +30,33 @@ export default class Details extends Component {
                 if (`https://ghibliapi.herokuapp.com/films/${this.props.match.params.id}` === `${person.films}`) {
                     return (
                         <div key={index}>
+                            {/* <div class="ui form">
+                                <div class="ui message">
+                                    <div class="header">{person.name}</div>
+                                    <ul class="list">
+                                        <li>Age: {person.age}</li>
+                                        <li>Gender: {person.gender}</li>
+                                        <li>Eye Color: {person.eye_color}</li>
+                                        <li>Hair Color: {person.hair_color}</li>
+                                    </ul>
+                                </div>
+                            </div> */}
 
-                            <h2 className='ui list peopleFont'>{person.name}</h2>
-                            <div className='list'>
-                                <div className='item listText'>Age: {person.age}</div>
-                                <div className='item listText'>Gender: {person.gender}</div>
-                                <div className='item listText'>Eye Color: {person.eye_color}</div>
-                                <div className='item listText'>Hair Color: {person.hair_color}</div>
+
+                            <div className="ui cards">
+                                <div className="card">
+                                    <div className="content">
+                                        <div className="header">{person.name}</div>
+                                        <div className="ui list">
+                                            <li><span className='list-text'>Age:</span> {person.age}</li>
+                                            <li><span className='list-text'>Gender:</span> {person.gender}</li>
+                                            <li><span className='list-text'>Eye Color:</span> {person.eye_color}</li>
+                                            <li><span className='list-text'>Hair Color:</span> {person.hair_color}</li>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <br />
-                        </div>
+                        </div >
                     )
                 }
             }
@@ -47,19 +64,16 @@ export default class Details extends Component {
         })
 
         return (
-
-
-
             <div className='ui container'>
                 <h1 className="ui header">{this.state.movie.title}</h1>
                 <h4 className="ui horizontal divider header">
                     <i className="film icon"></i>
                     Description
-</h4>
+                </h4>
                 <p>{this.state.movie.description}</p>
                 <h4 className="ui horizontal divider header">
                     Details
-</h4>
+                </h4>
                 <table className="ui definition table">
                     <tbody>
                         <tr>
@@ -82,9 +96,9 @@ export default class Details extends Component {
                     </tbody>
                 </table>
 
-                <button className="ui button buttonpadding" onClick={() => this.getPeople()}>Characters</button>
+                <button className="ui button" onClick={() => this.getPeople()}>Characters</button>
                 <div className='ui centered grid'>
-                  {people} 
+                    {people}
                 </div>
             </div>
 

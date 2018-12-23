@@ -32,11 +32,10 @@ export default class MovieInfo extends Component {
                         </div>
                     </div>
                     <div className="extra content">
-
                     </div>
                 </div>
             </div>
-            </Link>
+            </Link>       
 
         )
 

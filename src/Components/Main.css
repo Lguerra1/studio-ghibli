@@ -3,7 +3,6 @@
     padding-bottom: 40px;
 }
 
-
 .header {
     text-align: center;
     padding-bottom: 10px;
@@ -15,9 +14,9 @@
 } 
 
   .cards {
-    background: lavender !important;
+    /* background: lavender !important; */
     margin: 1rem !important;
-    box-shadow: 2px 4px 25px rgba(0, 0, 0, .1) !important;
+    /* box-shadow: 2px 4px 25px rgba(0, 0, 0, .1) !important; */
     border-radius: 12px !important;
     transition: all .2s linear !important;
     text-align: left !important;
@@ -31,28 +30,26 @@
     padding: 10px 0px 10px 0px;
   } 
 
-   img {      
+img {      
       height: 100px !important;
-      width: 300px !important;
-  } 
+      width: 200px !important;
+} 
 
-   .item {
+.item {
       font-size: 12px;
-  } 
+} 
 
 .sub-title{
     font-size: 15px;
 }
 
 .peopleFont {
-    font-size: 20px !important;
+    font-size: 15px !important;
+    
 }
 
-.listText {
+.list-text {
     text-align: left;
     font-size: 15px;
-}
-
-.buttonpadding {
-    margin-bottom: 25px !important;
+    font-weight: 550    
 }
