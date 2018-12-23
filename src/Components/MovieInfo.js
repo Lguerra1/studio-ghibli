@@ -13,7 +13,7 @@ export default class MovieInfo extends Component {
             id: props.movie.id
         }
     }
- 
+
 
     render() {
 
@@ -29,9 +29,6 @@ export default class MovieInfo extends Component {
                             Director: {this.state.director}
                             <br />
                             Release Date: {this.state.release_date}
-                        </div>
-                        <div className="description">
-                            {/* {this.state.description} */}
                         </div>
                     </div>
                     <div className="extra content">

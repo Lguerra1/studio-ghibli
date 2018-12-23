@@ -40,3 +40,19 @@
       font-size: 12px;
   } 
 
+.sub-title{
+    font-size: 15px;
+}
+
+.peopleFont {
+    font-size: 20px !important;
+}
+
+.listText {
+    text-align: left;
+    font-size: 15px;
+}
+
+.buttonpadding {
+    margin-bottom: 25px !important;
+}
