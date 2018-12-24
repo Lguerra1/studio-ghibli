@@ -51,9 +51,11 @@ img {
 .list-text {
     text-align: left;
     font-size: 15px;
-    font-weight: 550    
+    font-weight: 450;
+    padding-top: 45px;
 }
 
 .character {
     margin-bottom: 10px !important;
 }
+

@@ -6,11 +6,9 @@ export default class Details extends Component {
         super()
         this.state = {
             movie: [],
-            people: [],
-            null: 'N/A'
+            people: []
         }
     }
-
     componentDidMount() {
         axios.get(`https://ghibliapi.herokuapp.com/films/${this.props.match.params.id}`).then(res => {
             // console.log(this.props.match.params.id)
@@ -34,7 +32,7 @@ export default class Details extends Component {
                             <div className="ui cards">
                                 <div className="card">
                                     <div className="content">
-                                        <div className="header">{person.name}</div>
+                                        <div className="header">Name: {person.name}</div>
                                         <div className="ui list">
                                             <li><span className='list-text'>Age:</span> {person.age}</li>
                                             <li><span className='list-text'>Gender:</span> {person.gender}</li>
@@ -43,12 +41,11 @@ export default class Details extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>                         
                         </div >
-                    )                    
-                } 
-            } 
-
+                    )
+                }
+            }
         })
 
         return (
@@ -84,7 +81,7 @@ export default class Details extends Component {
                 </table>
                 <button className="ui button character" onClick={() => this.getPeople()}>Characters</button>
                 <div className='ui centered grid'>
-                   {people}
+                    {people}
                 </div>
             </div>
 
