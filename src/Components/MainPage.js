@@ -14,10 +14,35 @@ class MainPage extends Component {
         })
     }
     render() {
+
+
+        // var inactivityTime = function () {
+        //     var t;
+        //     window.onload = resetTimer;
+        //     // DOM Events
+        //     document.onmousemove = resetTimer;
+        //     document.onkeypress = resetTimer;
+
+        //     function logout() {
+        //         alert("You are now logged out.")
+        //         //location.href = 'logout.php'
+        //     }
+
+        //     function resetTimer() {
+        //         clearTimeout(t);
+        //         t = setTimeout(logout, 3000)
+        //         // 1000 milisec = 1 sec
+        //     }
+        // };
+
+
         return (
             <div>
                 <HomePage movies={this.state.movies}
                 />
+
+                {/* {inactivityTime()} */}
+                
             </div>
         );
     }
