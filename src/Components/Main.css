@@ -59,3 +59,9 @@ img {
     margin-bottom: 10px !important;
 }
 
+.poster-image {
+    margin-top: 10px !important;
+    height: 300px !important;
+    width: 300px !important;    
+    border: none !important;
+}

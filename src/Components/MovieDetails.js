@@ -6,7 +6,8 @@ export default class Details extends Component {
         super()
         this.state = {
             movie: [],
-            people: []
+            people: [],
+            tmdb: [],
         }
     }
     componentDidMount() {
@@ -23,6 +24,14 @@ export default class Details extends Component {
             this.setState({ people: res.data })
         })
     }
+    getPoster() {
+        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=64df366c8c4778879b5869a1fd5b9d8a&query=${this.state.movie.title}`).then(res => {
+            console.log(res.data, 'here')
+            console.log(this.state.movie.title, 'test')
+            this.setState({ tmdb: res.data.results[0] })
+        })
+    }
+
     render() {
         let people = this.state.people.map((person, index) => {
             for (let i = 0; i < this.state.people.length; i++) {
@@ -41,7 +50,7 @@ export default class Details extends Component {
                                         </div>
                                     </div>
                                 </div>
-                            </div>                         
+                            </div>
                         </div >
                     )
                 }
@@ -51,11 +60,17 @@ export default class Details extends Component {
         return (
             <div className='ui container'>
                 <h1 className="ui header">{this.state.movie.title}</h1>
+                <div className='ui centered grid'>
+                <button className='ui mini button' onClick={() => this.getPoster()} >Click for poster</button>
+                </div>
+                <img className='ui centered image poster-image' src={`https://image.tmdb.org/t/p/original${this.state.tmdb.poster_path}`} alt='' />
                 <h4 className="ui horizontal divider header">
                     <i className="film icon"></i>
                     Description
                 </h4>
                 <p>{this.state.movie.description}</p>
+
+
                 <h4 className="ui horizontal divider header">
                     Details
                 </h4>
@@ -84,6 +99,7 @@ export default class Details extends Component {
                     {people}
                 </div>
             </div>
+
 
         )
     }

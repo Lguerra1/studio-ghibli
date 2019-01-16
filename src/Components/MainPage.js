@@ -19,8 +19,6 @@ class MainPage extends Component {
             <div>
                 <HomePage movies={this.state.movies}
                 />
-
-                {/* {inactivityTime()} */}
                 
             </div>
         );
