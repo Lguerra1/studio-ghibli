@@ -6,10 +6,12 @@ import axios from 'axios';
 
 class MainPage extends Component {
     state = {
-        movies: []
+        movies: [],
+        
     }
     componentDidMount() {
         axios.get('https://ghibliapi.herokuapp.com/films').then(res => {
+            
             this.setState({ movies: res.data })
         })
     }

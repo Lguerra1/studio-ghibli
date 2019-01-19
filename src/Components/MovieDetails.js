@@ -1,36 +1,37 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class Details extends Component {
+class MovieDetails extends Component {
     constructor() {
         super()
         this.state = {
             movie: [],
             people: [],
             tmdb: [],
+
         }
     }
-    componentDidMount() {
+    componentWillMount() {
         axios.get(`https://ghibliapi.herokuapp.com/films/${this.props.match.params.id}`).then(res => {
-            // console.log(this.props.match.params.id)
-            // console.log(this.props)
+            console.log(res.data.title)
             this.setState({ movie: res.data })
-        })
+            console.log(this.state.movie)
+            axios.get(`https://api.themoviedb.org/3/search/movie?api_key=64df366c8c4778879b5869a1fd5b9d8a&query=${this.state.movie.title}`).then(res => {
+                console.log(res.data, 'here')
+                this.setState({ tmdb: res.data.results[0] })
 
+            })
+        })
     }
+
     getPeople() {
         axios.get(`https://ghibliapi.herokuapp.com/people`).then(res => {
             console.log(res.data)
             this.setState({ people: res.data })
         })
     }
-    getPoster() {
-        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=64df366c8c4778879b5869a1fd5b9d8a&query=${this.state.movie.title}`).then(res => {
-            console.log(res.data, 'here')
-            console.log(this.state.movie.title, 'test')
-            this.setState({ tmdb: res.data.results[0] })
-        })
-    }
+
+
 
     render() {
         let people = this.state.people.map((person, index) => {
@@ -59,11 +60,21 @@ export default class Details extends Component {
 
         return (
             <div className='ui container'>
-                <h1 className="ui header">{this.state.movie.title}</h1>
-                <div className='ui centered grid'>
-                <button className='ui mini button' onClick={() => this.getPoster()} >Click for poster</button>
+                <h1 className="ui header">
+                    {this.state.tmdb.original_title}
+                </h1>
+                    <p className='original-title'>({this.state.movie.title})</p>
+                    {/* <p className='original-title'>{this.state.tmdb.original_title}</p> */}
+                
+                <div className="ui centered grid container">
+
+                    <img className='poster-image' src={`https://image.tmdb.org/t/p/original${this.state.tmdb.poster_path}`} />
+                    <img className='poster-image' src={`https://image.tmdb.org/t/p/original${this.state.tmdb.backdrop_path}`} />
                 </div>
-                <img className='ui centered image poster-image' src={`https://image.tmdb.org/t/p/original${this.state.tmdb.poster_path}`} alt='' />
+
+
+
+
                 <h4 className="ui horizontal divider header">
                     <i className="film icon"></i>
                     Description
@@ -99,8 +110,8 @@ export default class Details extends Component {
                     {people}
                 </div>
             </div>
-
-
         )
+
     }
 }
+export default MovieDetails

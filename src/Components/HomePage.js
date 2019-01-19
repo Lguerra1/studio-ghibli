@@ -15,11 +15,10 @@ const HomePage = (props) => {
     })
     return (
         <div>
-            <h1 className='main-title'>Studio Ghibli Films 
+            <h1 className='main-title'>Studio Ghibli Films
             <br />
-            <p className='sub-title'>(Click on a film for more info.)</p>
+                <p className='sub-title'>(Click on a film for more info.)</p>
             </h1>
-
             <div className="ui centered grid container">
                 {movie}
             </div>
